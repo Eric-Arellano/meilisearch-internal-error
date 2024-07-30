@@ -39,9 +39,6 @@ async function downloadMeili(): Promise<void> {
 
 async function setUpIndex(client: MeiliSearch, index: string): Promise<void> {
   await client.createIndex(index, { primaryKey: "id" });
-  await client.index(index).updateSettings({
-    searchableAttributes: ["title"],
-  });
 }
 
 async function uploadIndex(file: string, index: string): Promise<void> {
