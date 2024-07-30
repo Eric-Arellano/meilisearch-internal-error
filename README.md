@@ -1,6 +1,6 @@
 # Meilisearch internal error debugging
 
-Minimal reproduction for getting these errors:
+Minimal reproduction for getting these errors with Meilisearch 1.9.0:
 
 > ERROR HTTP request{method=GET host="0.0.0.0:7700" route=/indexes query_parameters= user_agent=Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/605.1.15 (KHTML, like Gecko) Version/17.5 Safari/605.1.15 status_code=500 error=internal: decoding failed.}: tracing_actix_web::middleware: Error encountered while processing the incoming HTTP request: ResponseError { code: 500, message: "internal: decoding failed.", error_code: "internal", error_type: "internal", error_link: "https://docs.meilisearch.com/errors#internal" }
 
@@ -11,8 +11,5 @@ Minimal reproduction for getting these errors:
 ## To run
 
 1. Ensure Docker is running
-2. `npm install`
-3. `./run.sh`
-4. Go to `localhost:7700`. It will ask for the API key, which you can get from the Docker logs in your terminal.
-
-You can try different versions of Meilisearch by changing the values in `Dockerfile` and `init-db.ts` in the function `downloadMeili`. Run `rm -rf .bin` when changing the Meilisearch version.
+2. `./run.sh`
+3. Go to `localhost:7700`. It will ask for the API key. Hit `Go` and you should see a decode error in the Web UI.
