@@ -33,7 +33,7 @@ async function downloadMeili(): Promise<void> {
 
     // Keep version in sync with Dockerfile
     process.env.MEILI_VERSION = "v1.9.0";
-    await $`sh ${__dirname}/download-meilisearch.sh`;
+    await $`sh ${__dirname}/download.sh`;
   });
 }
 
