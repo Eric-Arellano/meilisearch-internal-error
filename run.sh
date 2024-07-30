@@ -11,7 +11,6 @@ pid=$!
 
 sleep 3
 curl -s -X POST http://127.0.0.1:7700/indexes -H 'Content-Type: application/json' --data-binary '{"uid": "movies", "primaryKey": "id"}'
-cat movies.ndjson | curl -s -X POST 'http://127.0.0.1:7700/indexes/movies/documents' --data-binary @- -H 'Content-Type: application/x-ndjson'
 
 sleep 2
 kill -9 $pid
